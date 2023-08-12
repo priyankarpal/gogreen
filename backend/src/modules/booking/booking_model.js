@@ -12,12 +12,20 @@ const bookingSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    booking_date: {
+    from_date: {
       type: String,
       required: true,
     },
-    last_date: {
+    to_date: {
       type: String,
+      required: true,
+    },
+    user_id: {
+      type: String,
+      required: true,
+    },
+    persons: {
+      type: Number,
       required: true,
     }
   },
