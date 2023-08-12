@@ -16,6 +16,21 @@ Introducing the "GoGreen" initiative, our primary goal revolves around establish
 - [NextJs](https://nextjs.org) - Next.js is an open-source web development framework.
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - JavaScript (JS) is a lightweight interpreted (or just-in-time compiled) programming language with first-class functions.
 - [TailwindCSS](https://tailwindcss.com) - Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.
-- [ReactIcons](https://react-icons.github.io/react-icons/) - Include popular icons in your React projects easily with react-icons, which utilizes ES6 imports that allows you to include only the icons that your project is using.
+- [React Icons](https://react-icons.github.io/react-icons/) - Include popular icons in your React projects easily with react-icons, which utilizes ES6 imports that allows you to include only the icons that your project is using.
 
-> Backend
+## Getting Started: Running the Project Locally
+
+### Why pnpm ?
+*[pnpm](https://pnpm.io/) accelerates package installation by sharing dependencies, optimizing storage and enhancing development efficiency.*
+
+**Install dependencies**
+
+```bash
+pnpm i
+```
+
+**run the development server:**
+
+```bash
+pnpm dev
+```
