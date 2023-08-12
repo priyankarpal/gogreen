@@ -67,7 +67,7 @@ export const Navbar = () => {
               Home
             </Link>
           </li>
-          <li className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-2xl"
+          <li className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-lg"
           >
             {logedinuser()}
           </li>
@@ -76,13 +76,13 @@ export const Navbar = () => {
               href="/contact"
               aria-label="Product pricing"
               title="Product pricing"
-              className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-xl"
+              className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-lg"
             >
               Contact
             </Link>
           </li>
           <li
-            className="tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-xl"
+            className="tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-lg  "
 
           >
             {/* Auth0 function call */}

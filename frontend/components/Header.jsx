@@ -7,7 +7,7 @@ export default function Header() {
   const router = useRouter();
 
   const handleButtonClick = () => {
-    if (user) {
+    if (user) { 
       router.push('/create'); // Redirect to /create if user exists
     } else {
       router.push('/api/auth/login'); // Redirect to login if user doesn't exist
