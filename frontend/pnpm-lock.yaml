@@ -29,9 +29,6 @@ dependencies:
   '@mui/x-data-grid':
     specifier: ^6.11.1
     version: 6.11.1(@mui/material@5.14.4)(@mui/system@5.14.4)(react-dom@18.2.0)(react@18.2.0)
-  '@next/font':
-    specifier: ^13.4.13
-    version: 13.4.13
   autoprefixer:
     specifier: 10.4.14
     version: 10.4.14(postcss@8.4.27)
@@ -572,10 +569,6 @@ packages:
     resolution: {integrity: sha512-RpZeXlPxQ9FLeYN84XHDqRN20XxmVNclYCraLYdifRsmibtcWUWdwE/ANp2C8kgesFRsvwfsw6eOkYNl9sLJ3A==}
     dependencies:
       glob: 7.1.7
-    dev: false
-
-  /@next/font@13.4.13:
-    resolution: {integrity: sha512-jzjUvjO967E2XWku5aImWRVApGwsTJZPp3lY5yFNWZHMkoNNKU9fsTEAhWVcKxCOYmHmSX1n2E09VkzuFdF48Q==}
     dev: false
 
   /@next/swc-darwin-arm64@13.4.13:
