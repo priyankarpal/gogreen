@@ -24,7 +24,14 @@ const {
   getBooking,
   getAllBooking,
 } = require("../modules/booking/booking_controller");
-const Booking = require("../modules/booking/booking_model");
+
+const { 
+  checkout, 
+  payment 
+} = require("../modules/payments/payment_controller");
+
+
+
 
 router.post("/hotels", creatHotels);
 router.get("/hotels", getAllHotels);
@@ -43,5 +50,11 @@ router.get("/bookings", getAllBooking);
 router.get("/bookings/:id", getBooking);
 router.patch("/bookings/:id", updateBooking);
 router.delete("/bookings/:id", deleteBooking);
+
+router.post("/checkout", checkout);
+router.post("/payment", payment);
+router.get("/paymentprocess", (req, res) => {
+  res.status(200).json({ key: "rzp_test_8oySKX9rIGczSe" });
+});
 
 module.exports = router;
