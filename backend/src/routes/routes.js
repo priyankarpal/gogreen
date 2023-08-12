@@ -11,7 +11,7 @@ const {
 
 const {
   creatUsers,
-  updateUsers,
+  updateUser,
   deleteUsers,
   getUsers,
   getAllUsers,
@@ -37,7 +37,7 @@ router.delete("/hotels/:id", deleteHotels);
 router.post("/users", creatUsers);
 router.get("/users", getAllUsers);
 router.get("/users/:id", getUsers);
-router.patch("/users/:id", updateUsers);
+router.patch("/users/:id", updateUser);
 router.delete("/users/:id", deleteUsers);
 
 router.post("/users/getUserId", getUserId);

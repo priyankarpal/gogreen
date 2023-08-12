@@ -10,12 +10,14 @@ const creatUsers = async (req, res) => {
   }
 };
 
-const updateUsers = async (req, res) => {
+const updateUser = async (req, res) => {
   try {
+    const { address, phone, country, state } = req.body;
+
     const updateUser = await User.findByIdAndUpdate(
       req.params.id,
       {
-        $set: req.body,
+        $set: { address, phone, country, state },
       },
       { new: true }
     );
@@ -80,7 +82,7 @@ const getUserId = async (req, res) => {
 
 module.exports = {
   creatUsers,
-  updateUsers,
+  updateUser,
   deleteUsers,
   getUsers,
   getAllUsers,

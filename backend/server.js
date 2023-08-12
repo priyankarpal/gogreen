@@ -10,7 +10,7 @@ const morgan = require("morgan");
 // const router = require("./src/modules/users/user_routes");
 
 dotenv.config();
-app.use(cors());
+app.use(cors({ origin: "*", credentials: true }));
 app.use(cokkie());
 app.use(express.json());
 app.use(morgan("dev"));

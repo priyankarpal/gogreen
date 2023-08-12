@@ -1,19 +1,22 @@
-const Booking = require('./booking_model');
-const User = require('../users/user_model');
-const Hotel = require('../hotels/hotel_model');
-
+const Booking = require("./booking_model");
+const User = require("../users/user_model");
+const Hotel = require("../hotels/hotel_model");
 
 const creatBooking = async (req, res) => {
-  const { user_id , hotel_id ,form_date,to_date,persons} = req.body;
-  
-  
-  const newBooking = new Booking({hotel_id:hotel_id,user_id:user_id,from_date:form_date,to_date:to_date,persons:persons});
+  const { user_id, hotel_id, form_date, to_date, persons } = req.body;
+
+  const newBooking = new Booking({
+    hotel_id: hotel_id,
+    user_id: user_id,
+    from_date: form_date,
+    to_date: to_date,
+    persons: persons,
+  });
   try {
     const save = await newBooking.save();
     res.status(200).json(save);
   } catch (error) {
     res.status(500).json(error);
-    
   }
 };
 
@@ -65,5 +68,10 @@ const getAllBooking = async (req, res) => {
   }
 };
 
-
-module.exports = {creatBooking,updateBooking,getAllBooking,getBooking,deleteBooking};
+module.exports = {
+  creatBooking,
+  updateBooking,
+  getAllBooking,
+  getBooking,
+  deleteBooking,
+};
