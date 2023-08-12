@@ -8,10 +8,10 @@ export const SubNav = () => {
         <ul class="flex items-center justify-center space-x-8 lg:flex">
           <li>
             <a
-              href="/"
+              href="/dashboard"
               aria-label="Our product"
               title="Our product"
-              class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+              class="font-medium tracking-wide text-black transition-colors duration-200 "
             >
               <AiTwotoneHome />
             </a>
@@ -21,7 +21,7 @@ export const SubNav = () => {
               href="/"
               aria-label="Our product"
               title="Our product"
-              class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+              class="font-medium tracking-wide text-black transition-colors duration-200 "
             >
               <PiCarSimpleDuotone />
             </a>
