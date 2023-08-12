@@ -12,9 +12,14 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      extend: {
+        gridTemplateRows: {
+          '[auto,auto,1fr]': 'auto auto 1fr',
+        },
+      }
     },
-  },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
+    plugins: [
+      require('@tailwindcss/forms', '@tailwindcss/aspect-ratio'),
+    ],
+  }
 }
