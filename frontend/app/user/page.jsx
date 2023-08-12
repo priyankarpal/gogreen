@@ -1,8 +1,6 @@
 "use client"
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { useUser } from '@auth0/nextjs-auth0/client';
-import { useRouter } from 'next/navigation'
 
 
 const columns = [
@@ -25,12 +23,6 @@ const rows = [
 ];
 
 export default function User() {
-    const router = useRouter()
-    const { user } = useUser();
-    // console.log(user)
-    if (!user) {
-        router.push("/")
-    }
     return (
         <section className='flex item-center justify-center'>
 

@@ -104,12 +104,6 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
-  const router = useRouter()
-  const { user } = useUser();
-  // console.log(user)
-  if (!user) {
-    router.push("/")
-  }
 
   const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
     props;
