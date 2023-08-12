@@ -73,7 +73,7 @@ export const Navbar = () => {
           </li>
           <li>
             <a
-              href="/"
+              href="/contact"
               aria-label="Product pricing"
               title="Product pricing"
               className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-2xl"
