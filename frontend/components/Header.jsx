@@ -1,10 +1,36 @@
-"use client"
+"use client";
 import Link from "next/link";
-import React from 'react'
-import { useUser } from '@auth0/nextjs-auth0/client';
-import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
+import React, { useEffect } from "react";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+
+import axios from "axios";
+
 export default function Header() {
+  const router = useRouter();
+  const { user } = useUser();
+
+  useEffect(() => {
+    async function fetchUserId() {
+      try {
+        const fetchedUser = await axios.post(
+          "http://localhost:8080/api/users/getUserId",
+          {
+            name: user.nickname,
+            email: user.email,
+          }
+        );
+
+        console.log(fetchedUser.data.user._id);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    if (user) fetchUserId();
+  }, [user]);
+
   // for animation
 
   const container = {
@@ -13,31 +39,29 @@ export default function Header() {
       opacity: 1,
       scale: 1,
       transition: {
-        delayChildren: .9,
-        staggerChildren: .9
-      }
-    }
+        delayChildren: 0.9,
+        staggerChildren: 0.9,
+      },
+    },
   };
 
   const item = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
-      opacity: 1
-    }
+      opacity: 1,
+    },
   };
-  const { user } = useUser();
-  const router = useRouter();
+
   const handleButtonClick = () => {
     if (user) {
-      router.push('/create'); // Redirect to /create if user exists
+      router.push("/create"); // Redirect to /create if user exists
     } else {
-      router.push('/api/auth/login'); // Redirect to login if user doesn't exist
+      router.push("/api/auth/login"); // Redirect to login if user doesn't exist
     }
   };
   return (
     <section>
-
       <div className="relative overflow-hidden bg-white">
         <div className="pb-80 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
           <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
@@ -68,7 +92,8 @@ export default function Header() {
                 }}
                 className="mt-4 text-xl text-gray-500"
               >
-                Embark on a Sustainable Journey with GoGreen - Empowering Travel, Inspiring Change, One Step at a Time
+                Embark on a Sustainable Journey with GoGreen - Empowering
+                Travel, Inspiring Change, One Step at a Time
               </motion.p>
             </div>
             <div>
@@ -80,17 +105,13 @@ export default function Header() {
                 >
                   <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
                     <div className="flex items-center space-x-6 lg:space-x-8">
-                      <div
-
-
-                        className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                      <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                         <motion.div
-
-
                           variants={container}
                           initial="hidden"
                           animate="visible"
-                          className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100 container">
+                          className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100 container"
+                        >
                           <img
                             src="https://images.unsplash.com/photo-1606046604972-77cc76aee944?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80"
                             alt=""
@@ -101,7 +122,8 @@ export default function Header() {
                           variants={container}
                           initial="hidden"
                           animate="visible"
-                          className="h-64 w-44 overflow-hidden rounded-lg">
+                          className="h-64 w-44 overflow-hidden rounded-lg"
+                        >
                           <img
                             src="https://images.unsplash.com/photo-1535827841776-24afc1e255ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWxzfGVufDB8MXwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
                             alt=""
@@ -114,7 +136,8 @@ export default function Header() {
                           variants={container}
                           initial="hidden"
                           animate="visible"
-                          className="h-64 w-44 overflow-hidden rounded-lg">
+                          className="h-64 w-44 overflow-hidden rounded-lg"
+                        >
                           <img
                             src="https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aG90ZWxzfGVufDB8MXwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
                             alt=""
@@ -125,7 +148,8 @@ export default function Header() {
                           variants={container}
                           initial="hidden"
                           animate="visible"
-                          className="h-64 w-44 overflow-hidden rounded-lg">
+                          className="h-64 w-44 overflow-hidden rounded-lg"
+                        >
                           <img
                             src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aG90ZWxzfGVufDB8MXwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
                             alt=""
@@ -136,7 +160,8 @@ export default function Header() {
                           variants={container}
                           initial="hidden"
                           animate="visible"
-                          className="h-64 w-44 overflow-hidden rounded-lg">
+                          className="h-64 w-44 overflow-hidden rounded-lg"
+                        >
                           <img
                             src="https://images.unsplash.com/photo-1523699289804-55347c09047d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aG90ZWxzfGVufDB8MXwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
                             alt=""
@@ -149,7 +174,8 @@ export default function Header() {
                           variants={container}
                           initial="hidden"
                           animate="visible"
-                          className="h-64 w-44 overflow-hidden rounded-lg">
+                          className="h-64 w-44 overflow-hidden rounded-lg"
+                        >
                           <img
                             src="https://images.unsplash.com/photo-1569335468888-1d3e4a5a3595?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhvdGVsc3xlbnwwfDF8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
                             alt=""
@@ -160,7 +186,8 @@ export default function Header() {
                           variants={container}
                           initial="hidden"
                           animate="visible"
-                          className="h-64 w-44 overflow-hidden rounded-lg">
+                          className="h-64 w-44 overflow-hidden rounded-lg"
+                        >
                           <img
                             src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGhvdGVsc3xlbnwwfDF8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
                             alt=""
@@ -172,7 +199,8 @@ export default function Header() {
                   </div>
                 </div>
 
-                <motion.p onClick={handleButtonClick}
+                <motion.p
+                  onClick={handleButtonClick}
                   initial={{ opacity: 0, x: -100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -180,11 +208,10 @@ export default function Header() {
                     duration: 0.8,
                     type: "spring",
                     stiffness: 100,
-                    damping: 10
+                    damping: 10,
                     // delay: 0,
                   }}
                   whileHover={{ scale: 1.1 }}
-
                   className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700 cursor-pointer"
                 >
                   Book Now
@@ -202,9 +229,10 @@ export default function Header() {
             transition={{
               duration: 0.8,
               delay: 0.3,
-              ease: [0, 0.71, 0.2, 1.01]
+              ease: [0, 0.71, 0.2, 1.01],
             }}
-            className="text-center text-lg font-semibold leading-8 text-gray-900">
+            className="text-center text-lg font-semibold leading-8 text-gray-900"
+          >
             Trusted by the world’s most prestigious hoteliers
           </motion.h2>
           <motion.div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
@@ -214,11 +242,11 @@ export default function Header() {
               transition={{
                 duration: 0.8,
                 delay: 0.3,
-                ease: [0, 0.71, 0.2, 1.01]
+                ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={e => { }}
-              onHoverEnd={e => { }}
+              onHoverStart={(e) => {}}
+              onHoverEnd={(e) => {}}
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg"
               alt="Transistor"
@@ -231,11 +259,11 @@ export default function Header() {
               transition={{
                 duration: 0.8,
                 delay: 0.3,
-                ease: [0, 0.71, 0.2, 1.01]
+                ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={e => { }}
-              onHoverEnd={e => { }}
+              onHoverStart={(e) => {}}
+              onHoverEnd={(e) => {}}
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg"
               alt="Reform"
@@ -248,11 +276,11 @@ export default function Header() {
               transition={{
                 duration: 0.8,
                 delay: 0.3,
-                ease: [0, 0.71, 0.2, 1.01]
+                ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={e => { }}
-              onHoverEnd={e => { }}
+              onHoverStart={(e) => {}}
+              onHoverEnd={(e) => {}}
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg"
               alt="Tuple"
@@ -265,11 +293,11 @@ export default function Header() {
               transition={{
                 duration: 0.8,
                 delay: 0.3,
-                ease: [0, 0.71, 0.2, 1.01]
+                ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={e => { }}
-              onHoverEnd={e => { }}
+              onHoverStart={(e) => {}}
+              onHoverEnd={(e) => {}}
               className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg"
               alt="SavvyCal"
@@ -282,11 +310,11 @@ export default function Header() {
               transition={{
                 duration: 0.8,
                 delay: 0.3,
-                ease: [0, 0.71, 0.2, 1.01]
+                ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={e => { }}
-              onHoverEnd={e => { }}
+              onHoverStart={(e) => {}}
+              onHoverEnd={(e) => {}}
               className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
               alt="Statamic"
@@ -305,7 +333,13 @@ export default function Header() {
               className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
               aria-hidden="true"
             >
-              <circle cx={512} cy={512} r={512} fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fillOpacity="0.7" />
+              <circle
+                cx={512}
+                cy={512}
+                r={512}
+                fill="url(#759c1415-0410-454c-8f7c-9a820de03641)"
+                fillOpacity="0.7"
+              />
               <defs>
                 <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
                   <stop stopColor="#7775D6" />
@@ -315,9 +349,14 @@ export default function Header() {
             </svg>
             <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Experience Unparalleled Luxury:        <br />              </h2>
+                Experience Unparalleled Luxury: <br />{" "}
+              </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                Indulge in a haven of elegance and sophistication at our exquisite hotel. Each moment is a masterpiece of comfort, accompanied by impeccable service. Welcome to a world where luxury knows no bounds.        </p>
+                Indulge in a haven of elegance and sophistication at our
+                exquisite hotel. Each moment is a masterpiece of comfort,
+                accompanied by impeccable service. Welcome to a world where
+                luxury knows no bounds.{" "}
+              </p>
               <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                 <Link
                   href="#"
@@ -325,7 +364,10 @@ export default function Header() {
                 >
                   Book Now
                 </Link>
-                <Link href="#" className="text-sm font-semibold leading-6 text-white">
+                <Link
+                  href="#"
+                  className="text-sm font-semibold leading-6 text-white"
+                >
                   Learn more <span aria-hidden="true">→</span>
                 </Link>
               </div>
@@ -342,9 +384,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-
-
-
-    </section >
-  )
+    </section>
+  );
 }

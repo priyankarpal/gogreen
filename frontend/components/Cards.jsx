@@ -16,7 +16,6 @@ export const Cards = () => {
               alt=""
               width={500}
               height={500}
-
             />
           </Link>
           <div className="p-5">
@@ -35,7 +34,6 @@ export const Cards = () => {
               consequuntur magni voluptatem doloremque.
             </p>
             <div className="flex space-x-4 ">
-
               <Link
                 href="#"
                 aria-label="Comments"
@@ -47,16 +45,13 @@ export const Cards = () => {
                   <AiOutlineStar />
                   <AiOutlineStar />
                   <AiOutlineStar />
-
-
                 </div>
               </Link>
-              <p className="flex font-bold ">book now
-
+              <p className="flex font-bold ">
+                book now
                 <span className="my-1 px-2">
                   <MdOutlineArrowForwardIos />
                 </span>
-
               </p>
             </div>
           </div>
@@ -68,7 +63,7 @@ export const Cards = () => {
               className="object-cover w-full h-64 rounded"
               alt=""
               width={500}
-              height={500} AiOutlineStar
+              height={500}
             />
           </Link>
           <div className="p-5">
@@ -87,7 +82,6 @@ export const Cards = () => {
               consequuntur magni voluptatem doloremque.
             </p>
             <div className="flex space-x-4">
-
               <Link
                 href="#"
                 aria-label="Comments"
@@ -99,16 +93,13 @@ export const Cards = () => {
                   <AiOutlineStar />
                   <AiOutlineStar />
                   <AiOutlineStar />
-
-
                 </div>
               </Link>
-              <p className="flex font-bold ">book now
-
+              <p className="flex font-bold ">
+                book now
                 <span className="my-1 px-2 ">
                   <MdOutlineArrowForwardIos />
                 </span>
-
               </p>
             </div>
           </div>
@@ -141,7 +132,6 @@ export const Cards = () => {
               consequuntur magni voluptatem doloremque.
             </p>
             <div className="flex space-x-4">
-
               <Link
                 href="#"
                 aria-label="Comments"
@@ -153,16 +143,13 @@ export const Cards = () => {
                   <AiOutlineStar />
                   <AiOutlineStar />
                   <AiOutlineStar />
-
-
                 </div>
               </Link>
-              <p className="flex font-bold ">book now
-
+              <p className="flex font-bold ">
+                book now
                 <span className="my-1 px-2">
                   <MdOutlineArrowForwardIos />
                 </span>
-
               </p>
             </div>
           </div>

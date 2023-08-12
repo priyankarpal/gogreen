@@ -1,9 +1,9 @@
-"use client"
-import { useState } from "react"
-import { BiSolidTreeAlt } from "react-icons/bi"
-import { useUser } from '@auth0/nextjs-auth0/client';
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
+import { useState } from "react";
+import { BiSolidTreeAlt } from "react-icons/bi";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import Image from "next/image";
+import Link from "next/link";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +16,13 @@ export const Navbar = () => {
     if (user) {
       return (
         <Link href="/profile">
-          <Image src={user.picture} width={30} height={30} alt={`profile image of ${user.nickname}`} className='rounded-full' />
+          <Image
+            src={user.picture}
+            width={30}
+            height={30}
+            alt={`profile image of ${user.nickname}`}
+            className="rounded-full"
+          />
         </Link>
       );
     }
@@ -29,7 +35,6 @@ export const Navbar = () => {
       >
         Login/Signup
       </a>
-
     );
   };
 
@@ -37,20 +42,34 @@ export const Navbar = () => {
   const logedinuser = () => {
     if (user) {
       return (
-        <Link href="/dashboard" className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-xl"
-        > Dashboard
+        <Link
+          href="/dashboard"
+          className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-xl"
+        >
+          {" "}
+          Dashboard
         </Link>
       );
     }
-    return (<Link href="/api/auth/login" className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-xl"
-    > Dashboard
-    </Link>);
+    return (
+      <Link
+        href="/api/auth/login"
+        className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-xl"
+      >
+        {" "}
+        Dashboard
+      </Link>
+    );
   };
   return (
-
     <div className="px-10 py-5 mx-auto bg-transparent backdrop-blur-sm sticky z-10 top-0 text-black">
       <div className="relative flex items-center justify-between ">
-        <Link className="inline-flex items-center text-2xl font-bold" href='/' >GoGreen <span className="text-3xl"><BiSolidTreeAlt /></span></Link>
+        <Link className="inline-flex items-center text-2xl font-bold" href="/">
+          GoGreen{" "}
+          <span className="text-3xl">
+            <BiSolidTreeAlt />
+          </span>
+        </Link>
 
         <ul className="flex items-center hidden space-x-8 lg:flex">
           <li>
@@ -63,8 +82,7 @@ export const Navbar = () => {
               Home
             </Link>
           </li>
-          <li className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-lg"
-          >
+          <li className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-lg">
             {logedinuser()}
           </li>
           <li>
@@ -77,17 +95,11 @@ export const Navbar = () => {
               Contact
             </Link>
           </li>
-          <li
-            className="tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-lg  "
-
-          >
+          <li className="tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-lg  ">
             {/* Auth0 function call */}
             {renderLogoutLink()}
           </li>
-
         </ul>
-
-
 
         <div className="lg:hidden">
           <button
@@ -155,9 +167,7 @@ export const Navbar = () => {
                         Home
                       </Link>
                     </li>
-                    <li
-
-                      className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400">
+                    <li className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400">
                       {logedinuser()}
                     </li>
                     <li>
@@ -186,6 +196,6 @@ export const Navbar = () => {
           )}
         </div>
       </div>
-    </div >
+    </div>
   );
 };
