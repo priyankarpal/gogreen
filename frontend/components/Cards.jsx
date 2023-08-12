@@ -7,7 +7,7 @@ export const Cards = () => {
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-        <div className="overflow-hidden rounded-md transition-shadow duration-300 bg-white ">
+        <div className="overflow-hidden rounded-md transition-shadow duration-300 bg-white border ">
           <a href="/" aria-label="Article">
             <Image
               src="https://images.pexels.com/photos/932638/pexels-photo-932638.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
@@ -60,7 +60,7 @@ export const Cards = () => {
             </div>
           </div>
         </div>
-        <div className="overflow-hidden transition-shadow duration-300  bg-white rounded-md p-2">
+        <div className="overflow-hidden transition-shadow duration-300  bg-white rounded-md p-2 border">
           <a href="/" aria-label="Article">
             <Image
               src="https://images.pexels.com/photos/1576937/pexels-photo-1576937.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
@@ -112,7 +112,7 @@ export const Cards = () => {
             </div>
           </div>
         </div>
-        <div className="overflow-hidden transition-shadow duration-300 bg-white rounded-md">
+        <div className="overflow-hidden transition-shadow duration-300 bg-white rounded-md border">
           <a href="/" aria-label="Article">
             <Image
               src="https://images.pexels.com/photos/2123755/pexels-photo-2123755.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
