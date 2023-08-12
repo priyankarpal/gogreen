@@ -17,7 +17,7 @@ require('./src/database/connectDb');
 
 // =======chat======
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 async function runCompletion() {
