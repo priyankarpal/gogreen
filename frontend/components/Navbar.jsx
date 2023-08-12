@@ -43,8 +43,8 @@ export const Navbar = () => {
   const logedinuser = () => {
     if (user) {
       return (
-        <Link href="/dashboard" className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-2xl"
-        > <BsFillCartDashFill />
+        <Link href="/dashboard" className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-xl"
+        > Dashboard
         </Link>
       );
     }
@@ -58,31 +58,31 @@ export const Navbar = () => {
 
         <ul className="flex items-center hidden space-x-8 lg:flex">
           <li>
-            <a
+            <Link
               href="/"
               aria-label="Our product"
               title="Our product"
-              className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-2xl"
+              className=" tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-xl"
             >
-              <GoHomeFill />
-            </a>
+              Home
+            </Link>
           </li>
-          <li className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-2xl"
+          <li className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-lg"
           >
             {logedinuser()}
           </li>
           <li>
-            <a
+            <Link
               href="/contact"
               aria-label="Product pricing"
               title="Product pricing"
-              className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-2xl"
+              className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-lg"
             >
-              <IoCall />
-            </a>
+              Contact
+            </Link>
           </li>
           <li
-            className="tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-2xl"
+            className="tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-lg  "
 
           >
             {/* Auth0 function call */}

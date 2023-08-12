@@ -1,11 +1,11 @@
 export const Footer = () => {
     return (
-      <div className="bg-gray-900">
+      <div className="bg-purple-950">
         <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
           <div className="grid row-gap-10 mb-8 lg:grid-cols-6">
             <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
               <div>
-                <p className="font-medium tracking-wide text-white-300">
+                <p className="font-medium tracking-wide text-white">
                   Category
                 </p>
                 <ul className="mt-2 space-y-2">
@@ -44,7 +44,7 @@ export const Footer = () => {
                 </ul>
               </div>
               <div>
-                <p className="font-medium tracking-wide text-white-300">Apples</p>
+                <p className="font-medium tracking-wide text-white">Apples</p>
                 <ul className="mt-2 space-y-2">
                   <li>
                     <a
@@ -89,7 +89,7 @@ export const Footer = () => {
                 </ul>
               </div>
               <div>
-                <p className="font-medium tracking-wide text-white-300">Cherry</p>
+                <p className="font-medium tracking-wide text-white">Cherry</p>
                 <ul className="mt-2 space-y-2">
                   <li>
                     <a
@@ -134,7 +134,7 @@ export const Footer = () => {
                 </ul>
               </div>
               <div>
-                <p className="font-medium tracking-wide text-white-300">
+                <p className="font-medium tracking-wide text-white">
                   Business
                 </p>
                 <ul className="mt-2 space-y-2">
@@ -174,7 +174,7 @@ export const Footer = () => {
               </div>
             </div>
             <div className="md:max-w-md lg:col-span-2">
-              <span className="text-base font-medium tracking-wide text-white-300">
+              <span className="text-base font-medium tracking-wide text-white">
                 Subscribe for updates
               </span>
               <form className="flex flex-col mt-4 md:flex-row">
@@ -192,14 +192,13 @@ export const Footer = () => {
                 </button>
               </form>
               <p className="mt-4 text-sm text-white">
-                Bacon ipsum dolor amet short ribs pig sausage prosciuto chicken
-                spare ribs salami.
+              Feel free to add your email so that we will keep you updated regarding the new hotels that subscribes to our platform.
               </p>
             </div>
           </div>
           <div className="flex flex-col justify-between pt-5 pb-10 border-t border-gray-800 sm:flex-row">
             <p className="text-sm text-white">
-              © Copyright 2020 Lorem Inc. All rights reserved.
+              © Copyright 2023 GoGreen Inc. All rights reserved.
             </p>
             <div className="flex items-center mt-4 space-x-4 sm:mt-0">
               <a
