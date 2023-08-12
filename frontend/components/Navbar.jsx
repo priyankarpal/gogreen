@@ -1,9 +1,5 @@
 "use client"
 import { useState } from "react"
-import { GoHomeFill } from "react-icons/go"
-import { BsFillCartDashFill } from "react-icons/bs"
-import { IoCall } from "react-icons/io5"
-import { HiLogin } from "react-icons/hi"
 import { BiSolidTreeAlt } from "react-icons/bi"
 import { useUser } from '@auth0/nextjs-auth0/client';
 import Image from 'next/image';
@@ -25,15 +21,13 @@ export const Navbar = () => {
       );
     }
     return (
-
-
       <a
         href="/api/auth/login"
         aria-label="Login"
         title="Login"
-        className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-2xl"
+        className=" tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-xl"
       >
-        <HiLogin />
+        Login/Signup
       </a>
 
     );
@@ -48,11 +42,13 @@ export const Navbar = () => {
         </Link>
       );
     }
-    return null;
+    return (<Link href="/api/auth/login" className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-xl"
+    > Dashboard
+    </Link>);
   };
   return (
 
-    <div className="px-10 py-5 mx-auto border-b border-gray-500 bg-transparent backdrop-blur-sm sticky z-10 top-0 text-black">
+    <div className="px-10 py-5 mx-auto bg-transparent backdrop-blur-sm sticky z-10 top-0 text-black">
       <div className="relative flex items-center justify-between ">
         <Link className="inline-flex items-center text-2xl font-bold" href='/' >GoGreen <span className="text-3xl"><BiSolidTreeAlt /></span></Link>
 
@@ -120,31 +116,16 @@ export const Navbar = () => {
               <div className="p-5 bg-white border rounded shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <a
+                    <Link
                       href="/"
-                      aria-label="Company"
-                      title="Company"
+                      aria-label="GoGreen"
+                      title="GoGreen"
                       className="inline-flex items-center"
                     >
-                      <svg
-                        className="w-8 text-deep-purple-accent-400"
-                        viewBox="0 0 24 24"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeMiterlimit="10"
-                        stroke="currentColor"
-                        fill="none"
-                      >
-                        <rect x="3" y="1" width="7" height="12" />
-                        <rect x="3" y="17" width="7" height="6" />
-                        <rect x="14" y="1" width="7" height="6" />
-                        <rect x="14" y="11" width="7" height="12" />
-                      </svg>
                       <span className="ml-2 text-xl font-bold tracking-wide text-black-800 uppercase">
-                        Company
+                        GoGreen
                       </span>
-                    </a>
+                    </Link>
                   </div>
                   <div>
                     <button
@@ -165,54 +146,38 @@ export const Navbar = () => {
                 <nav>
                   <ul className="space-y-4">
                     <li>
-                      <a
+                      <Link
                         href="/"
                         aria-label="Our product"
                         title="Our product"
-                        className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        className="font-medium text-xl tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
-                        Product
-                      </a>
+                        Home
+                      </Link>
+                    </li>
+                    <li
+
+                      className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400">
+                      {logedinuser()}
                     </li>
                     <li>
-                      <a
-                        href="/"
-                        aria-label="Our product"
-                        title="Our product"
-                        className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+                      <Link
+                        href="/contact"
+                        aria-label="Contact"
+                        title="Contact"
+                        className="font-medium text-xl tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
-                        Features
-                      </a>
+                        Contact
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="/"
-                        aria-label="Product pricing"
-                        title="Product pricing"
-                        className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-                      >
-                        Pricing
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/"
-                        aria-label="About us"
-                        title="About us"
-                        className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-                      >
-                        About us
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/"
+                      <div
                         className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                         aria-label="Sign up"
                         title="Sign up"
                       >
-                        Sign up
-                      </a>
+                        {renderLogoutLink()}
+                      </div>
                     </li>
                   </ul>
                 </nav>
@@ -221,6 +186,6 @@ export const Navbar = () => {
           )}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
