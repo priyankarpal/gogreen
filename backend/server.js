@@ -14,6 +14,7 @@ app.use(cors({ origin: "*", credentials: true }));
 app.use(cokkie());
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: true }));
 app.use("/api", router);
 require("./src/database/connectDb");
 
