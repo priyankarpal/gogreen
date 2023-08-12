@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
 import { GoHomeFill } from "react-icons/go"
-import { BiSolidCartAlt } from "react-icons/bi"
+import { BsFillCartDashFill } from "react-icons/bs"
 import { IoCall } from "react-icons/io5"
 import { HiLogin } from "react-icons/hi"
 import { BiSolidTreeAlt } from "react-icons/bi"
@@ -38,6 +38,18 @@ export const Navbar = () => {
 
     );
   };
+
+  // for loged in users
+  const logedinuser = () => {
+    if (user) {
+      return (
+        <Link href="/dashboard" className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-2xl"
+        > <BsFillCartDashFill />
+        </Link>
+      );
+    }
+    return null;
+  };
   return (
 
     <div className="px-10 py-5 mx-auto border-b border-gray-500 bg-transparent backdrop-blur-sm sticky z-10 top-0 text-black">
@@ -55,15 +67,9 @@ export const Navbar = () => {
               <GoHomeFill />
             </a>
           </li>
-          <li>
-            <a
-              href="/"
-              aria-label="Our product"
-              title="Our product"
-              className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-2xl"
-            >
-              <BiSolidCartAlt />
-            </a>
+          <li className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-2xl"
+          >
+            {logedinuser()}
           </li>
           <li>
             <a
