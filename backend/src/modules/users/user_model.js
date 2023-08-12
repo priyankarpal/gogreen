@@ -1,20 +1,18 @@
 const mongoose = require("mongoose");
-
-const hotelsSchema = new mongoose.Schema(
+const bcrypt = require("bcryptjs");
+const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
       required: true,
+      unique: true,
     },
     email: {
       type: String,
       required: true,
+      unique: true,
     },
     password: {
-      type: String,
-      required: true,
-    },
-    owner_id: {
       type: String,
       required: true,
     },
@@ -22,36 +20,28 @@ const hotelsSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    web_link: {
-      type: String,
-      required: true,
-    },
-    description: {
-      type: String,
-      required: true,
-    },
     contact_no: {
       type: Number,
       required: true,
     },
-    booking_open: {
-      type: Boolean,
-      required: true,
-    },
-    eco_friendly: {
+    isAdmin: {
       type: Boolean,
       default: false,
     },
-    ratings: {
-      type: Number,
+    bookings: {
+      type: [String],
       required: true,
-      min: 0,
-      max: 5,
     },
   },
   { timestamps: true }
 );
 
-const Hotel = mongoose.model("Hotel", hotelsSchema);
+userSchema.pre("save", async function (next) {
+  if (this.isModified("password")) {
+    this.password = await bcrypt.hash(this.password, 12);
+  }
+  next();
+});
 
-module.exports = Hotel;
+const User = mongoose.model("User", userSchema);
+module.exports = User;
