@@ -3,15 +3,9 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation'
 
 export default function Profile() {
     const { user, error, isLoading } = useUser();
-    const router = useRouter()
-    // console.log(user)
-    if (!user) {
-        router.push("/")
-    }
     const renderLogoutLink = () => {
         if (user) {
             return (
