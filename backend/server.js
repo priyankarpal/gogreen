@@ -3,7 +3,8 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const cokkie = require("cookie-parser");
 const app = express();
-const router = require("./src/modules/hotels/hotel_routes");
+const router = require("./src/routes/routes");
+// const router = require("./src/modules/users/user_routes");
 
 dotenv.config();
 app.use(cors());
