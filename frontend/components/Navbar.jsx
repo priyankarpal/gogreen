@@ -48,7 +48,7 @@ export const Navbar = () => {
   };
   return (
 
-    <div className="px-10 py-5 mx-auto border-b border-gray-500 bg-transparent backdrop-blur-sm sticky z-10 top-0 text-black">
+    <div className="px-10 py-5 mx-auto bg-transparent backdrop-blur-sm sticky z-10 top-0 text-black">
       <div className="relative flex items-center justify-between ">
         <Link className="inline-flex items-center text-2xl font-bold" href='/' >GoGreen <span className="text-3xl"><BiSolidTreeAlt /></span></Link>
 
