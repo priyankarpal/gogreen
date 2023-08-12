@@ -10,27 +10,9 @@ import axios from "axios";
 export default function Dashboard() {
   const router = useRouter();
   const { user } = useUser();
-  console.log(user);
   useEffect(() => {
     if (!user) {
       router.push("/");
-    } else {
-      async function fetchUserId() {
-        console.log("startoing req");
-        axios
-          .post("http://localhost:8080/api/users/getUserId", {
-            name: user.nickname,
-            email: user.email,
-          })
-          .then((res) => {
-            console.log(res);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
-
-      fetchUserId();
     }
   }, [user]);
 
