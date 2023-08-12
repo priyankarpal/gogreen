@@ -4,6 +4,10 @@ const Hotel = require("../hotels/hotel_model");
 
 const creatBooking = async (req, res) => {
   const { user_id, hotel_id, form_date, to_date, persons } = req.body;
+  const data = User.findById({ user_id });
+  if (!data) {
+    return res.status(404).json("Did NOt get data");
+  }
 
   const newBooking = new Booking({
     hotel_id: hotel_id,
@@ -11,6 +15,7 @@ const creatBooking = async (req, res) => {
     from_date: form_date,
     to_date: to_date,
     persons: persons,
+    phone: data.phone,
   });
   try {
     const save = await newBooking.save();

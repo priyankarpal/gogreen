@@ -7,7 +7,7 @@ const router = require("./src/routes/routes");
 const { Configuration, OpenAIApi } = require("openai");
 const axios = require("axios");
 const morgan = require("morgan");
-// const router = require("./src/modules/users/user_routes");
+
 
 dotenv.config();
 app.use(cors({ origin: "*", credentials: true }));
@@ -18,24 +18,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", router);
 require("./src/database/connectDb");
 
-// const send = async (req,res)=>{
-//  const accountSid = "ACa336400248ef065713709696d8eb1ba9";
-//  const authToken = "[AuthToken]";
-//  const client = require("twilio")(accountSid, authToken);
-
-//  const msg = await client.messages
-//    .create({
-//      body: "hey how are u again",
-//      from: "+16185906988",
-//      to: "+917449585365",
-//    })
-//    if(msg){
-//      res.json(msg.sid);
-//    }else{
-//     res.json("Not Working")
-//    }
-
-// }
 
 async function sendMessage() {
   const accountSid = "ACa336400248ef065713709696d8eb1ba9";
