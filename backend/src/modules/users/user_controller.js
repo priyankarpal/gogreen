@@ -61,16 +61,19 @@ const getAllUsers = async (req, res) => {
 const getUserId = async (req, res) => {
   try {
     const { name, email } = req.body;
-    const user = await User.find({ email: email });
+    const user = await User.findOne({ email: email });
+
     if (user) {
       res.status(200).json({
         user,
       });
     } else {
+      const newUser = new User(req.body);
       const saveUser = await newUser.save({ name, email });
       res.status(200).json({ user: saveUser });
     }
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 };

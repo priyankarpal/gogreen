@@ -40,7 +40,7 @@ router.get("/users/:id", getUsers);
 router.patch("/users/:id", updateUsers);
 router.delete("/users/:id", deleteUsers);
 
-router.get("/users/getUserId", getUserId);
+router.post("/users/getUserId", getUserId);
 
 router.post("/bookings", creatBooking);
 router.get("/bookings", getAllBooking);

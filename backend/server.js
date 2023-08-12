@@ -6,15 +6,16 @@ const app = express();
 const router = require("./src/routes/routes");
 const { Configuration, OpenAIApi } = require("openai");
 const axios = require("axios");
+const morgan = require("morgan");
 // const router = require("./src/modules/users/user_routes");
 
 dotenv.config();
 app.use(cors());
 app.use(cokkie());
 app.use(express.json());
-app.use('/api',router);
-require('./src/database/connectDb');
-
+app.use(morgan("dev"));
+app.use("/api", router);
+require("./src/database/connectDb");
 
 // const send = async (req,res)=>{
 //  const accountSid = "ACa336400248ef065713709696d8eb1ba9";
@@ -32,16 +33,13 @@ require('./src/database/connectDb');
 //    }else{
 //     res.json("Not Working")
 //    }
-   
+
 // }
 
-
-
-
 async function sendMessage() {
-   const accountSid = "ACa336400248ef065713709696d8eb1ba9";
-   const authToken = "3ee12b40a38d5a4b5e24f3ba67ff1ca0";
-   const client = require("twilio")(accountSid, authToken);
+  const accountSid = "ACa336400248ef065713709696d8eb1ba9";
+  const authToken = "3ee12b40a38d5a4b5e24f3ba67ff1ca0";
+  const client = require("twilio")(accountSid, authToken);
   try {
     const msg = await client.messages.create({
       body: "hey how are u again",
@@ -56,10 +54,8 @@ async function sendMessage() {
   }
 }
 
-app.get("/send",sendMessage);
+app.get("/send", sendMessage);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server Start At Port ${process.env.PORT}`);
 });
-
-
