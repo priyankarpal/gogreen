@@ -15,6 +15,7 @@ const {
   deleteUsers,
   getUsers,
   getAllUsers,
+  getUserId,
 } = require("../modules/users/user_controller");
 
 const {
@@ -25,13 +26,7 @@ const {
   getAllBooking,
 } = require("../modules/booking/booking_controller");
 
-const { 
-  checkout, 
-  payment 
-} = require("../modules/payments/payment_controller");
-
-
-
+const { checkout, payment } = require("../modules/payments/payment_controller");
 
 router.post("/hotels", creatHotels);
 router.get("/hotels", getAllHotels);
@@ -44,6 +39,8 @@ router.get("/users", getAllUsers);
 router.get("/users/:id", getUsers);
 router.patch("/users/:id", updateUsers);
 router.delete("/users/:id", deleteUsers);
+
+router.get("/users/getUserId", getUserId);
 
 router.post("/bookings", creatBooking);
 router.get("/bookings", getAllBooking);

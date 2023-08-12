@@ -1,6 +1,5 @@
 const User = require("./user_model");
 
-
 const creatUsers = async (req, res) => {
   const newUser = new User(req.body);
   try {
@@ -59,11 +58,28 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+const getUserId = async (req, res) => {
+  try {
+    const { name, email } = req.body;
+    const user = await User.find({ email: email });
+    if (user) {
+      res.status(200).json({
+        user,
+      });
+    } else {
+      const saveUser = await newUser.save({ name, email });
+      res.status(200).json({ user: saveUser });
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
 
 module.exports = {
   creatUsers,
   updateUsers,
   deleteUsers,
   getUsers,
-  getAllUsers
+  getAllUsers,
+  getUserId,
 };
