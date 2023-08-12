@@ -12,7 +12,7 @@ export default function Header() {
                 Find best green hotels
               </h1>
               <p className="mt-4 text-xl text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ullam quae reprehenderit sed voluptates amet dolor ipsum neque porro
+              Embark on a Sustainable Journey with GoGreen - Empowering Travel, Inspiring Change, One Step at a Time
               </p>
             </div>
             <div>
@@ -97,7 +97,7 @@ export default function Header() {
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="text-center text-lg font-semibold leading-8 text-gray-900">
-            Trusted by the world’s most innovative teams
+            Trusted by the world’s most prestigious hoteliers
           </h2>
           <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
             <img
@@ -157,15 +157,15 @@ export default function Header() {
             </svg>
             <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.         <br />              </h2>
+              Experience Unparalleled Luxury:        <br />              </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                Explicabo impedit, non quas, maxime porro fugit perferendis, magni aliquam deleniti cum ipsam beatae sapiente!         </p>
+              Indulge in a haven of elegance and sophistication at our exquisite hotel. Each moment is a masterpiece of comfort, accompanied by impeccable service. Welcome to a world where luxury knows no bounds.        </p>
               <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                 <a
                   href="#"
                   className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
-                  Get started
+                  Book Now
                 </a>
                 <a href="#" className="text-sm font-semibold leading-6 text-white">
                   Learn more <span aria-hidden="true">→</span>
