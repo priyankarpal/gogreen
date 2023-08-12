@@ -8,7 +8,7 @@ export const Header = () => {
           <div>
 
           </div>
-          <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-white sm:text-5xl md:mx-auto">
+          <h2 className=" mb-6 font-sans text-4xl font-bold leading-none tracking-tight text-white sm:text-5xl md:mx-auto pt-10">
             <span className="relative inline-block">
 
             </span>{' '}
