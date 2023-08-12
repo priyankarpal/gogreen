@@ -20,7 +20,7 @@ export const Navbar = () => {
     if (user) {
       return (
         <Link href="/profile">
-          <Image src={user.picture} width={50} height={50} alt={`profile image of ${user.nickname}`} className='rounded-full' />
+          <Image src={user.picture} width={30} height={30} alt={`profile image of ${user.nickname}`} className='rounded-full' />
         </Link>
       );
     }
