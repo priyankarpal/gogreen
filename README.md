@@ -3,9 +3,6 @@ Welcome 👋
 
 <p>
 Introducing the "GoGreen" initiative, our primary goal revolves around establishing a comprehensive carbon-neutral platform tailored for avid travelers. Every aspect of their engagement within this platform will be powered by renewable energy sources, encompassing a fully sustainable approach from inception to execution.
-
-> Here is an example of a Profile [https://projectshut.vercel.app/projects/priyankarpal
-](https://github.com/priyankarpal/GoGreen_Hackathon)
 </p>
 
 
@@ -34,3 +31,12 @@ pnpm i
 ```bash
 pnpm dev
 ```
+# Team Members
+> Team Name: Bencode
+
+we developed this project in [Status Code 0](https://statuscode0.devfolio.co/) Hackathon 
+
+- [Daksh Singh Rathore](https://github.com/dakshsinghrathore) - Frontend
+- [Priyankar Pal](https://github.com/priyankarpal) - Frontend
+- [Richard Rozario](https://github.com/XC3000) - Backend
+- [Puskar Roy](https://github.com/Puskar-Roy) - Backend
