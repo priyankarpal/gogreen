@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect } from "react";
+import { useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
@@ -245,8 +246,8 @@ export default function Header() {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={(e) => {}}
-              onHoverEnd={(e) => {}}
+              onHoverStart={(e) => { }}
+              onHoverEnd={(e) => { }}
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg"
               alt="Transistor"
@@ -262,8 +263,8 @@ export default function Header() {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={(e) => {}}
-              onHoverEnd={(e) => {}}
+              onHoverStart={(e) => { }}
+              onHoverEnd={(e) => { }}
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg"
               alt="Reform"
@@ -279,8 +280,8 @@ export default function Header() {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={(e) => {}}
-              onHoverEnd={(e) => {}}
+              onHoverStart={(e) => { }}
+              onHoverEnd={(e) => { }}
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg"
               alt="Tuple"
@@ -296,8 +297,8 @@ export default function Header() {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={(e) => {}}
-              onHoverEnd={(e) => {}}
+              onHoverStart={(e) => { }}
+              onHoverEnd={(e) => { }}
               className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg"
               alt="SavvyCal"
@@ -313,8 +314,8 @@ export default function Header() {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={(e) => {}}
-              onHoverEnd={(e) => {}}
+              onHoverStart={(e) => { }}
+              onHoverEnd={(e) => { }}
               className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
               alt="Statamic"
