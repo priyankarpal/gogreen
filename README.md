@@ -15,6 +15,22 @@ Introducing the "GoGreen" initiative, our primary goal revolves around establish
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - JavaScript (JS) is a lightweight interpreted (or just-in-time compiled) programming language with first-class functions.
 - [TailwindCSS](https://tailwindcss.com) - Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.
 - [React Icons](https://react-icons.github.io/react-icons/) - Include popular icons in your React projects easily with react-icons, which utilizes ES6 imports that allows you to include only the icons that your project is using.
+- [Framer Motion](https://www.framer.com/motion/) - Utilized Framer Motion to infuse dynamic animations and seamless transitions, enhancing user engagement in my project.
+
+> Backend
+
+- [NodeJs](https://nodejs.org/en) - Node.js® is an open-source, cross-platform JavaScript runtime environment.
+- [Express.js](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js
+- [Mongodb Atlas](https://www.mongodb.com/cloud/atlas/register) - Employed MongoDB Atlas to streamline database management, ensuring efficiency, scalability, and data integrity.
+- [Razorpay](https://razorpay.com/) -Integrated Razorpay API for secure and hassle-free payment processing, ensuring a smooth transaction experience
+  
+> API
+- [Postman](https://www.postman.com/) -  Leveraged Postman API for seamless testing and integration, expediting the development and delivery process
+- [Twillio](https://www.twilio.com/en-us) - Integrated Twilio for effortless and reliable communication features, enhancing user engagement and interaction
+- [OpenAI](https://openai.com/) - OpenAI is an American artificial intelligence (AI) research laboratory consisting of the non-profit OpenAI, Inc. and its for-profit subsidiary corporation
+
+> Authentication
+- [Auth0](https://auth0.com/) - Implemented Auth0 to fortify security measures with a seamless and customizable authentication and authorization solution
 
 ## Getting Started: Running the Project Locally
 
