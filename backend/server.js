@@ -4,10 +4,8 @@ const dotenv = require("dotenv");
 const cokkie = require("cookie-parser");
 const app = express();
 const router = require("./src/routes/routes");
-const { Configuration, OpenAIApi } = require("openai");
-const axios = require("axios");
+
 const morgan = require("morgan");
-const sendMessage = require("./src/utils/sendMessage");
 
 dotenv.config();
 app.use(cors({ origin: "*", credentials: true }));

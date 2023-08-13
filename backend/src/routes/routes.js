@@ -29,7 +29,6 @@ const {
 } = require("../modules/booking/booking_controller");
 
 const { checkout, payment } = require("../modules/payments/payment_controller");
-const axios = require("axios");
 
 router.post("/hotels", creatHotels);
 router.get("/hotels", getAllHotels);
