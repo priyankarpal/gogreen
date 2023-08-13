@@ -47,7 +47,7 @@ export const Navbar = () => {
           className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-deep-purple-accent-400 text-xl"
         >
           {" "}
-          Dashboard
+          Browse
         </Link>
       );
     }
