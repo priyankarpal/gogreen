@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { AiOutlineStar } from "react-icons/ai";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
-import { motion } from "framer-motion";
 import axios from "axios";
+import BASE_URL from "@/constants/url";
 
 export const HotelListings = () => {
   const [hotels, setHotels] = useState([]);
@@ -13,9 +13,7 @@ export const HotelListings = () => {
   useEffect(() => {
     async function fetchUserId() {
       try {
-        const fetchedHotels = await axios.get(
-          "http://localhost:8080/api/hotels"
-        );
+        const fetchedHotels = await axios.get(`${BASE_URL}/api/hotels`);
 
         setHotels(fetchedHotels.data);
       } catch (error) {

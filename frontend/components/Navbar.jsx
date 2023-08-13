@@ -4,6 +4,7 @@ import { BiSolidTreeAlt } from "react-icons/bi";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import Image from "next/image";
 import Link from "next/link";
+import BASE_URL from "@/constants/url";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -21,8 +21,6 @@ export default function Header() {
             email: user.email,
           }
         );
-
-        console.log(fetchedUser.data.user._id);
       } catch (error) {
         console.log(error);
       }

@@ -4,6 +4,7 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import axios from "axios";
 import { useParams } from "next/navigation";
+import BASE_URL from "@/constants/url";
 
 const product = {
   name: "Hotel Name",
@@ -63,11 +64,8 @@ export default function HotelsDetails() {
   useEffect(() => {
     async function fetchUserId() {
       try {
-        const hotel = await axios.get(
-          `http://localhost:8080/api/hotels/${params.id}`
-        );
+        const hotel = await axios.get(`${BASE_URL}/api/hotels/${params.id}`);
 
-        console.log(hotel.data);
         setHotel(hotel.data);
       } catch (error) {
         console.log(error);
@@ -79,12 +77,9 @@ export default function HotelsDetails() {
 
   const handleHotelBooking = async () => {
     try {
-      const res = await axios.post(
-        `http://localhost:8080/api/create-payment-link`,
-        {
-          amount: hotel?.price * 100,
-        }
-      );
+      const res = await axios.post(`${BASE_URL}/api/create-payment-link`, {
+        amount: hotel?.price * 100,
+      });
 
       window.open(res.data.short_url);
     } catch (error) {
