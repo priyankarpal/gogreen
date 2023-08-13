@@ -1,6 +1,8 @@
 const Router = require("express");
 const router = Router();
-const { verifyAdmin, verifyUser } = require("../middlewears/middlewear");
+const sendMessage = require("./src/utils/sendMessage");
+const axios = require("axios");
+
 const {
   creatHotels,
   getAllHotels,
@@ -88,6 +90,53 @@ router.post("/checkout", checkout);
 router.post("/payment", payment);
 router.get("/paymentprocess", (req, res) => {
   res.status(200).json({ key: "rzp_test_8oySKX9rIGczSe" });
+});
+
+router.post("/send-message", async (req, res) => {
+  try {
+    const { phone, message } = req.body;
+
+    const data = await sendMessage({ phone, message });
+    return res.json(data);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "An error occurred while creating the payment link" });
+  }
+});
+
+const openaiApiKey = "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";
+
+router.get("/get-nearby-recommendations", async (req, res) => {
+  try {
+    const { prompt } = req.body; // Assuming your data is sent in a "data" field
+
+    // Construct your request to OpenAI API
+    const openaiResponse = await axios.post(
+      "https://api.openai.com/v1/engines/davinci-codex/completions",
+      {
+        prompt: prompt,
+        max_tokens: 50, // You can adjust this
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${openaiApiKey}`,
+        },
+      }
+    );
+
+    // Extract the response from OpenAI
+    const generatedText = openaiResponse.data.choices[0].text;
+
+    // You can do further processing here if needed
+
+    // Send the generated response back
+    res.json({ generatedText });
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.status(500).json({ error: "An error occurred" });
+  }
 });
 
 module.exports = router;
