@@ -17,7 +17,7 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use("/api", router);
 require("./src/database/connectDb");
-
+const openaiApiKey = "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";
 
 async function sendMessage() {
   const accountSid = "ACa336400248ef065713709696d8eb1ba9";
@@ -36,6 +36,37 @@ async function sendMessage() {
     return "Not Working";
   }
 }
+app.post("/process-data", async (req, res) => {
+  try {
+    const inputData = req.body.data; // Assuming your data is sent in a "data" field
+
+    // Construct your request to OpenAI API
+    const openaiResponse = await axios.post(
+      "https://api.openai.com/v1/engines/davinci-codex/completions",
+      {
+        prompt: inputData,
+        max_tokens: 50, // You can adjust this
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${openaiApiKey}`,
+        },
+      }
+    );
+
+    // Extract the response from OpenAI
+    const generatedText = openaiResponse.data.choices[0].text;
+
+    // You can do further processing here if needed
+
+    // Send the generated response back
+    res.json({ generatedText });
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.status(500).json({ error: "An error occurred" });
+  }
+});
 
 app.get("/send", sendMessage);
 
