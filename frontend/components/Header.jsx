@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect } from "react";
-import { useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
@@ -63,39 +62,39 @@ export default function Header() {
   };
 
   const checkOut = async () => {
-    try {
-      const {
-        data: { key },
-      } = await axios.get("http://localhost:8080/api/paymentprocess");
-      const { data } = await axios.post("http://localhost:8080/api/checkout");
-      console.log(data);
-      const options = {
-        key: "rzp_test_8oySKX9rIGczSe", // Enter the Key ID generated from the Dashboard
-        amount: 5000, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-        currency: "INR",
-        name: "Puskar Roy",
-        description: "Shoping",
-        image: "https://example.com/your_logo",
-        order_id: data.id,
-        callback_url: "http://localhost:8080/api/payment",
-        prefill: {
-          name: "Gaurav Kumar",
-          email: "gaurav.kumar@example.com",
-          contact: "9000090000",
-        },
-        notes: {
-          address: "Razorpay Corporate Office",
-        },
-        theme: {
-          color: "#3399cc",
-        },
-      };
-      const razor = new window.Razorpay(options);
-      razor.open();
-      console.log(data.id);
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   const {
+    //     data: { key },
+    //   } = await axios.get("http://localhost:8080/api/paymentprocess");
+    //   const { data } = await axios.post("http://localhost:8080/api/checkout");
+    //   console.log(data);
+    //   const options = {
+    //     key: "rzp_test_8oySKX9rIGczSe", // Enter the Key ID generated from the Dashboard
+    //     amount: 5000, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    //     currency: "INR",
+    //     name: "Puskar Roy",
+    //     description: "Shoping",
+    //     image: "https://example.com/your_logo",
+    //     order_id: data.id,
+    //     callback_url: "http://localhost:8080/api/payment",
+    //     prefill: {
+    //       name: "Gaurav Kumar",
+    //       email: "gaurav.kumar@example.com",
+    //       contact: "9000090000",
+    //     },
+    //     notes: {
+    //       address: "Razorpay Corporate Office",
+    //     },
+    //     theme: {
+    //       color: "#3399cc",
+    //     },
+    //   };
+    //   const razor = new Razorpay(options);
+    //   razor.open();
+    //   console.log(data.id);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   return (

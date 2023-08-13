@@ -50,6 +50,10 @@ const hotelsSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    price: {
+      type: Number,
+      required: true,
+    },
     eco_friendly: {
       type: Boolean,
       default: false,

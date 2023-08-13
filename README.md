@@ -35,9 +35,13 @@ pnpm dev
 # Team Members
 > Team Name: Bencode
 
-we developed this project in [Status Code 0](https://statuscode0.devfolio.co/) Hackathon 
+We developed this project in [Status Code 0](https://statuscode0.devfolio.co/) Hackathon
 
-- [Daksh Singh Rathore](https://github.com/dakshsinghrathore) - Frontend
-- [Priyankar Pal](https://github.com/priyankarpal) - Frontend
-- [Richard Rozario](https://github.com/XC3000) - Backend
-- [Puskar Roy](https://github.com/Puskar-Roy) - Backend
+| Name                   | Role    | GitHub Profile                                 | Photo                                               |
+|------------------------|---------|--------------------------------------------|-----------------------------------------------------|
+| Daksh Singh Rathore    | Frontend| [dakshsinghrathore](https://github.com/dakshsinghrathore)    | <img src="https://github.com/dakshsinghrathore.png" height="100">    |
+| Priyankar Pal          | Frontend| [priyankarpal](https://github.com/priyankarpal)            | <img src="https://github.com/priyankarpal.png" height="100">              |
+| Richard Rozario        | Backend | [XC3000](https://github.com/XC3000)                 | <img src="https://github.com/XC3000.png" height="100">             |
+| Puskar Roy             | Backend | [Puskar-Roy](https://github.com/Puskar-Roy)            | <img src="https://github.com/Puskar-Roy.png" height="100">              |
+
+

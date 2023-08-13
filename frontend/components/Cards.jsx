@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import Razorpay from "razorpay";
 import { AiOutlineStar } from "react-icons/ai";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { motion } from "framer-motion";
@@ -31,19 +30,18 @@ export const HotelListings = () => {
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
         {hotels.map((hotel) => (
-          <div
+          <Link
             key={hotel._id}
-            className="overflow-hidden rounded-md transition-shadow duration-300 bg-white border "
+            href={`/hotels/${hotel._id}`}
+            className="overflow-hidden flex items-start justify-between flex-col rounded-md transition-shadow duration-300 bg-white border h-[40rem]"
           >
-            <Link href="/" aria-label="Article">
-              <img
-                src={hotel.image}
-                className="object-cover w-full h-64 rounded-md p-2"
-                alt=""
-                width={500}
-                height={500}
-              />
-            </Link>
+            <img
+              src={hotel.image}
+              className="object-cover w-full h-64 rounded-md p-2"
+              alt=""
+              width={500}
+              height={500}
+            />
             <div className="p-5">
               <p className="mb-2 text-xs font-semibold text-gray-600 uppercase">
                 13 Jul 2020
@@ -74,15 +72,20 @@ export const HotelListings = () => {
                     <AiOutlineStar />
                   </div>
                 </Link>
-                <p className="flex font-bold ">
-                  book now
-                  <span className="my-1 px-2">
-                    <MdOutlineArrowForwardIos />
-                  </span>
-                </p>
               </div>
             </div>
-          </div>
+            <div className="p-5">
+              <button
+                className="flex font-bold text-white
+                p-5 text-center uppercase items-center justify-center bg-blue-500"
+              >
+                book now
+                <span className="my-1 px-2">
+                  <MdOutlineArrowForwardIos />
+                </span>
+              </button>
+            </div>
+          </Link>
         ))}
         {/* <div className="overflow-hidden transition-shadow duration-300  bg-white rounded-md p-2 border">
         <motion.div
