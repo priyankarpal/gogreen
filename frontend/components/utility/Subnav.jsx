@@ -1,3 +1,5 @@
+import { AiTwotoneHome } from 'react-icons/ai'
+import { PiCarSimpleDuotone } from 'react-icons/pi'
 import Link from 'next/link';
 
 export const SubNav = () => {
@@ -27,6 +29,6 @@ export const SubNav = () => {
           </li>
         </ul>
       </div>
-    </div >
+    </div>
   );
 };

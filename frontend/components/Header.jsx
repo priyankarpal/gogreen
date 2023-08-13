@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect } from "react";
+import { useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
@@ -60,6 +61,43 @@ export default function Header() {
       router.push("/api/auth/login"); // Redirect to login if user doesn't exist
     }
   };
+
+  const checkOut = async () => {
+    try {
+      const {
+        data: { key },
+      } = await axios.get("http://localhost:8080/api/paymentprocess");
+      const { data } = await axios.post("http://localhost:8080/api/checkout");
+      console.log(data);
+      const options = {
+        key: "rzp_test_8oySKX9rIGczSe", // Enter the Key ID generated from the Dashboard
+        amount: 5000, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        currency: "INR",
+        name: "Puskar Roy",
+        description: "Shoping",
+        image: "https://example.com/your_logo",
+        order_id: data.id,
+        callback_url: "http://localhost:8080/api/payment",
+        prefill: {
+          name: "Gaurav Kumar",
+          email: "gaurav.kumar@example.com",
+          contact: "9000090000",
+        },
+        notes: {
+          address: "Razorpay Corporate Office",
+        },
+        theme: {
+          color: "#3399cc",
+        },
+      };
+      const razor = new window.Razorpay(options);
+      razor.open();
+      console.log(data.id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <section>
       <div className="relative overflow-hidden bg-white">
@@ -199,8 +237,8 @@ export default function Header() {
                   </div>
                 </div>
 
-                <motion.p
-                  onClick={handleButtonClick}
+                <motion.button
+                  onClick={checkOut}
                   initial={{ opacity: 0, x: -100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -215,7 +253,7 @@ export default function Header() {
                   className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700 cursor-pointer"
                 >
                   Book Now
-                </motion.p>
+                </motion.button>
               </div>
             </div>
           </div>
