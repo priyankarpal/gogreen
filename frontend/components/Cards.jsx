@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import Razorpay from "razorpay";
 import { AiOutlineStar } from "react-icons/ai";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { motion } from "framer-motion";
