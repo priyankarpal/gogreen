@@ -8,7 +8,6 @@ const { Configuration, OpenAIApi } = require("openai");
 const axios = require("axios");
 const morgan = require("morgan");
 
-
 dotenv.config();
 app.use(cors({ origin: "*", credentials: true }));
 app.use(cokkie());
@@ -19,15 +18,15 @@ app.use("/api", router);
 require("./src/database/connectDb");
 const openaiApiKey = "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";
 
-async function sendMessage() {
+async function sendMessage({ phone, message }) {
   const accountSid = "ACa336400248ef065713709696d8eb1ba9";
   const authToken = "3ee12b40a38d5a4b5e24f3ba67ff1ca0";
   const client = require("twilio")(accountSid, authToken);
   try {
     const msg = await client.messages.create({
-      body: "hey how are u again",
+      body: message,
       from: "+16185906988",
-      to: "+917449585365",
+      to: `+91${phone}`,
     });
 
     return msg.sid;
@@ -36,15 +35,15 @@ async function sendMessage() {
     return "Not Working";
   }
 }
-app.post("/process-data", async (req, res) => {
+app.post("/get-nearby-recommendations", async (req, res) => {
   try {
-    const inputData = req.body.data; // Assuming your data is sent in a "data" field
+    const { prompt } = req.body; // Assuming your data is sent in a "data" field
 
     // Construct your request to OpenAI API
     const openaiResponse = await axios.post(
       "https://api.openai.com/v1/engines/davinci-codex/completions",
       {
-        prompt: inputData,
+        prompt: prompt,
         max_tokens: 50, // You can adjust this
       },
       {
