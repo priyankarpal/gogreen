@@ -1,14 +1,20 @@
+"use client"
+
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { AiOutlinePlusCircle } from 'react-icons/ai'
+import { motion } from 'framer-motion'
 function page() {
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
 
 
-        <div className="overflow-hidden transition-shadow duration-300 bg-white rounded-md">
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          className="overflow-hidden transition-shadow duration-300 bg-white rounded-md">
           <a href="/" aria-label="Article">
             <Image
               src="https://images.pexels.com/photos/2123755/pexels-photo-2123755.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
@@ -102,7 +108,7 @@ function page() {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
         <Link href='/create/post' className=' flex justify-center text-[2rem] item-center pt-[13rem] border rounded-md'><AiOutlinePlusCircle className='cursor-pointer' /></Link>
       </div>
     </div>
