@@ -77,6 +77,21 @@ export default function HotelsDetails() {
     fetchUserId();
   }, []);
 
+  const handleHotelBooking = async () => {
+    try {
+      const res = await axios.post(
+        `http://localhost:8080/api/create-payment-link`,
+        {
+          amount: hotel?.price * 100,
+        }
+      );
+
+      window.open(res.data.short_url);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="bg-white">
       <div className="pt-6">
@@ -126,7 +141,7 @@ export default function HotelsDetails() {
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">Product information</h2>
             <p className="text-3xl tracking-tight text-gray-900">
-              {product.price}
+              ₹ {hotel?.price}
             </p>
 
             {/* Reviews */}
@@ -209,7 +224,8 @@ export default function HotelsDetails() {
               </div>
 
               <button
-                type="submit"
+                onClick={handleHotelBooking}
+                type="button"
                 className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Book Now
