@@ -5,6 +5,7 @@ Welcome 👋
 Introducing the "GoGreen" initiative, our primary goal revolves around establishing a comprehensive carbon-neutral platform tailored for avid travelers. Every aspect of their engagement within this platform will be powered by renewable energy sources, encompassing a fully sustainable approach from inception to execution.
 </p>
 
+![gogreenlandingpage](https://github.com/priyankarpal/GoGreen_Hackathon/assets/115932772/5269c003-9c42-4a75-94d4-344417a3ead1)
 
 ## 💻 Tech Stack
 
