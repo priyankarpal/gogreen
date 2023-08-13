@@ -52,12 +52,12 @@ export const HotelListings = () => {
                   <AiOutlineStar />
                 </div>
               </Link>
-              <p className="flex font-bold ">
+              <Link href='/hotels' className="flex font-bold ">
                 book now
                 <span className="my-1 px-2">
                   <MdOutlineArrowForwardIos />
                 </span>
-              </p>
+              </Link>
             </div>
           </div>
         </motion.div>
@@ -103,12 +103,12 @@ export const HotelListings = () => {
                   <AiOutlineStar />
                 </div>
               </Link>
-              <p className="flex font-bold ">
+              <Link href='/hotels' className="flex font-bold ">
                 book now
                 <span className="my-1 px-2 ">
                   <MdOutlineArrowForwardIos />
                 </span>
-              </p>
+              </Link >
             </div>
           </div>
         </motion.div>
@@ -156,12 +156,12 @@ export const HotelListings = () => {
                   <AiOutlineStar />
                 </div>
               </Link>
-              <p className="flex font-bold ">
+              <Link href="/hotels" className="flex font-bold ">
                 book now
                 <span className="my-1 px-2">
                   <MdOutlineArrowForwardIos />
                 </span>
-              </p>
+              </Link >
             </div>
           </div>
         </motion.div>
