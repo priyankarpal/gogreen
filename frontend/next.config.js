@@ -8,6 +8,8 @@ const nextConfig = {
       "images.pexels.com",
       "s.gravatar.com",
       "lh3.googleusercontent.com",
+      "cache.marriott.com",
+      "tajhotels.com",
     ],
   },
 };
