@@ -2,27 +2,23 @@ const mongoose = require("mongoose");
 
 const hotelsSchema = new mongoose.Schema(
   {
-    name: {
+    hotelName: {
       type: String,
-      required: true,
+      // required: true,
     },
-    email: {
-      type: String,
-      required: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
+    // email: {
+    //   type: String,
+    //   required: true,
+    // },
+    // password: {
+    //   type: String,
+    //   required: true,
+    // },
     owner_id: {
       type: String,
       required: true,
     },
-    address: {
-      type: String,
-      required: true,
-    },
-    web_link: {
+    streetAddress: {
       type: String,
       required: true,
     },
@@ -30,12 +26,28 @@ const hotelsSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    contact_no: {
-      type: Number,
+    city: {
+      type: String,
       required: true,
     },
-    booking_open: {
+    state: {
+      type: String,
+      required: true,
+    },
+    pincode: {
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    isActive: {
       type: Boolean,
+      default: true,
+    },
+    rooms: {
+      type: Number,
       required: true,
     },
     eco_friendly: {
@@ -44,7 +56,7 @@ const hotelsSchema = new mongoose.Schema(
     },
     ratings: {
       type: Number,
-      required: true,
+      default: 0,
       min: 0,
       max: 5,
     },
