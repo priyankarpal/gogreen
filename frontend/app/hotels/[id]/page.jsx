@@ -1,63 +1,85 @@
-"use client"
-import { useState } from 'react'
-import { StarIcon } from '@heroicons/react/20/solid'
-import { RadioGroup } from '@headlessui/react'
+"use client";
+import { useEffect, useState } from "react";
+import { StarIcon } from "@heroicons/react/20/solid";
+import { RadioGroup } from "@headlessui/react";
+import axios from "axios";
+import { useParams } from "next/navigation";
 
 const product = {
-  name: 'Hotel Name',
-  price: '$192',
-  href: '#',
+  name: "Hotel Name",
+  price: "$192",
+  href: "#",
   images: [
     {
-      src: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-      alt: 'Two each of gray, white, and black shirts laying flat.',
+      src: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      alt: "Two each of gray, white, and black shirts laying flat.",
     },
     {
-      src: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aG90ZWxzfGVufDB8MXwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
-      alt: 'Model wearing plain black basic tee.',
+      src: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aG90ZWxzfGVufDB8MXwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      alt: "Model wearing plain black basic tee.",
     },
     {
-      src: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGhvdGVsc3xlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
-      alt: 'Model wearing plain gray basic tee.',
+      src: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGhvdGVsc3xlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      alt: "Model wearing plain gray basic tee.",
     },
     {
-      src: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhvdGVsc3xlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
-      alt: 'Model wearing plain white basic tee.',
+      src: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhvdGVsc3xlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      alt: "Model wearing plain white basic tee.",
     },
   ],
 
   sizes: [
-    { name: '1', inStock: true },
-    { name: '2', inStock: true },
-    { name: '3', inStock: true },
-    { name: '4', inStock: true },
-    { name: '5', inStock: true },
+    { name: "1", inStock: true },
+    { name: "2", inStock: true },
+    { name: "3", inStock: true },
+    { name: "4", inStock: true },
+    { name: "5", inStock: true },
   ],
   description:
     'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
   highlights: [
-    'Hand cut and sewn locally',
-    'Dyed with our proprietary colors',
-    'Pre-washed & pre-shrunk',
-    'Ultra-soft 100% cotton',
+    "Hand cut and sewn locally",
+    "Dyed with our proprietary colors",
+    "Pre-washed & pre-shrunk",
+    "Ultra-soft 100% cotton",
   ],
   details:
     'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
-}
-const reviews = { href: '#', average: 4, totalCount: 117 }
+};
+const reviews = { href: "#", average: 4, totalCount: 117 };
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
-export default function Hotels() {
+export default function HotelsDetails() {
   // const [selectedColor, setSelectedColor] = useState(product.colors[0])
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2])
+  const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
+
+  const [hotel, setHotel] = useState({});
+
+  const params = useParams();
+
+  useEffect(() => {
+    async function fetchUserId() {
+      try {
+        const hotel = await axios.get(
+          `http://localhost:8080/api/hotels/${params.id}`
+        );
+
+        console.log(hotel.data);
+        setHotel(hotel.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchUserId();
+  }, []);
 
   return (
     <div className="bg-white">
       <div className="pt-6">
-
         {/* Image gallery */}
         <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
           <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
@@ -95,13 +117,17 @@ export default function Hotels() {
         {/* Product info */}
         <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{product.name}</h1>
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+              {hotel?.hotelName}
+            </h1>
           </div>
 
           {/* Options */}
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">Product information</h2>
-            <p className="text-3xl tracking-tight text-gray-900">{product.price}</p>
+            <p className="text-3xl tracking-tight text-gray-900">
+              {product.price}
+            </p>
 
             {/* Reviews */}
             <div className="mt-6">
@@ -112,15 +138,20 @@ export default function Hotels() {
                     <StarIcon
                       key={rating}
                       className={classNames(
-                        reviews.average > rating ? 'text-gray-900' : 'text-gray-200',
-                        'h-5 w-5 flex-shrink-0'
+                        reviews.average > rating
+                          ? "text-gray-900"
+                          : "text-gray-200",
+                        "h-5 w-5 flex-shrink-0"
                       )}
                       aria-hidden="true"
                     />
                   ))}
                 </div>
                 <p className="sr-only">{reviews.average} out of 5 stars</p>
-                <a href={reviews.href} className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                <a
+                  href={reviews.href}
+                  className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                >
                   {reviews.totalCount} reviews
                 </a>
               </div>
@@ -136,51 +167,39 @@ export default function Hotels() {
                   </p>
                 </div>
 
-                <RadioGroup value={selectedSize} onChange={setSelectedSize} className="mt-4">
-                  <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
+                <RadioGroup
+                  value={selectedSize}
+                  onChange={setSelectedSize}
+                  className="mt-4"
+                >
+                  <RadioGroup.Label className="sr-only">
+                    Choose a size
+                  </RadioGroup.Label>
                   <div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
-                    {product.sizes.map((size) => (
+                    {[...Array(hotel?.rooms).keys()].map((item, index) => (
                       <RadioGroup.Option
-                        key={size.name}
-                        value={size}
-                        disabled={!size.inStock}
+                        key={index}
+                        value={item}
+                        // disabled={!size.inStock}
                         className={({ active }) =>
                           classNames(
-                            size.inStock
-                              ? 'cursor-pointer bg-white text-gray-900 shadow-sm'
-                              : 'cursor-not-allowed bg-gray-50 text-gray-200',
-                            active ? 'ring-2 ring-indigo-500' : '',
-                            'group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6'
+                            "cursor-pointer bg-white text-gray-900 shadow-sm text-center p-5"
                           )
                         }
                       >
                         {({ active, checked }) => (
                           <>
-                            <RadioGroup.Label as="span">{size.name}</RadioGroup.Label>
-                            {size.inStock ? (
-                              <span
-                                className={classNames(
-                                  active ? 'border' : 'border-2',
-                                  checked ? 'border-indigo-500' : 'border-transparent',
-                                  'pointer-events-none absolute -inset-px rounded-md'
-                                )}
-                                aria-hidden="true"
-                              />
-                            ) : (
-                              <span
-                                aria-hidden="true"
-                                className="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
-                              >
-                                <svg
-                                  className="absolute inset-0 h-full w-full stroke-2 text-gray-200"
-                                  viewBox="0 0 100 100"
-                                  preserveAspectRatio="none"
-                                  stroke="currentColor"
-                                >
-                                  <line x1={0} y1={100} x2={100} y2={0} vectorEffect="non-scaling-stroke" />
-                                </svg>
-                              </span>
-                            )}
+                            <RadioGroup.Label as="span">
+                              {item + 1}
+                            </RadioGroup.Label>
+                            <span
+                              className={classNames(
+                                active ? "border" : "border-2",
+                                "border-transparent",
+                                "pointer-events-none absolute -inset-px rounded-md"
+                              )}
+                              aria-hidden="true"
+                            />
                           </>
                         )}
                       </RadioGroup.Option>
@@ -204,7 +223,7 @@ export default function Hotels() {
               <h3 className="sr-only">Description</h3>
 
               <div className="space-y-6">
-                <p className="text-base text-gray-900">{product.description}</p>
+                <p className="text-base text-gray-900">{hotel?.description}</p>
               </div>
             </div>
 
@@ -233,5 +252,5 @@ export default function Hotels() {
         </div>
       </div>
     </div>
-  )
+  );
 }
