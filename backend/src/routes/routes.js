@@ -1,6 +1,6 @@
 const Router = require("express");
 const router = Router();
-const sendMessage = require("./src/utils/sendMessage");
+const sendMessage = require("../utils/sendMessage");
 const axios = require("axios");
 
 const {
