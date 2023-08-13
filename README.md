@@ -26,7 +26,7 @@ Introducing the "GoGreen" initiative, our primary goal revolves around establish
   
 > API
 - [Postman](https://www.postman.com/) -  Leveraged Postman API for seamless testing and integration, expediting the development and delivery process
-- [Twillio](https://www.twilio.com/en-us) - Integrated Twilio for effortless and reliable communication features, enhancing user engagement and interaction
+- [Twillio](https://www.twilio.com/en-us) - Using Twilio, we ensure you receive instant booking confirmations and personalized updates for a seamless hotel experience
 - [OpenAI](https://openai.com/) - OpenAI is an American artificial intelligence (AI) research laboratory consisting of the non-profit OpenAI, Inc. and its for-profit subsidiary corporation
 
 > Authentication
