@@ -61,6 +61,43 @@ export default function Header() {
       router.push("/api/auth/login"); // Redirect to login if user doesn't exist
     }
   };
+
+  const checkOut = async () => {
+    try {
+      const {
+        data: { key },
+      } = await axios.get("http://localhost:8080/api/paymentprocess");
+      const { data } = await axios.post("http://localhost:8080/api/checkout");
+      console.log(data);
+      const options = {
+        key: "rzp_test_8oySKX9rIGczSe", // Enter the Key ID generated from the Dashboard
+        amount: 5000, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        currency: "INR",
+        name: "Puskar Roy",
+        description: "Shoping",
+        image: "https://example.com/your_logo",
+        order_id: data.id,
+        callback_url: "http://localhost:8080/api/payment",
+        prefill: {
+          name: "Gaurav Kumar",
+          email: "gaurav.kumar@example.com",
+          contact: "9000090000",
+        },
+        notes: {
+          address: "Razorpay Corporate Office",
+        },
+        theme: {
+          color: "#3399cc",
+        },
+      };
+      const razor = new window.Razorpay(options);
+      razor.open();
+      console.log(data.id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <section>
       <div className="relative overflow-hidden bg-white">
@@ -200,8 +237,8 @@ export default function Header() {
                   </div>
                 </div>
 
-                <motion.p
-                  onClick={handleButtonClick}
+                <motion.button
+                  onClick={checkOut}
                   initial={{ opacity: 0, x: -100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -216,7 +253,7 @@ export default function Header() {
                   className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700 cursor-pointer"
                 >
                   Book Now
-                </motion.p>
+                </motion.button>
               </div>
             </div>
           </div>
@@ -246,8 +283,8 @@ export default function Header() {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={(e) => { }}
-              onHoverEnd={(e) => { }}
+              onHoverStart={(e) => {}}
+              onHoverEnd={(e) => {}}
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg"
               alt="Transistor"
@@ -263,8 +300,8 @@ export default function Header() {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={(e) => { }}
-              onHoverEnd={(e) => { }}
+              onHoverStart={(e) => {}}
+              onHoverEnd={(e) => {}}
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg"
               alt="Reform"
@@ -280,8 +317,8 @@ export default function Header() {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={(e) => { }}
-              onHoverEnd={(e) => { }}
+              onHoverStart={(e) => {}}
+              onHoverEnd={(e) => {}}
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg"
               alt="Tuple"
@@ -297,8 +334,8 @@ export default function Header() {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={(e) => { }}
-              onHoverEnd={(e) => { }}
+              onHoverStart={(e) => {}}
+              onHoverEnd={(e) => {}}
               className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg"
               alt="SavvyCal"
@@ -314,8 +351,8 @@ export default function Header() {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
               whileHover={{ scale: 1.2 }}
-              onHoverStart={(e) => { }}
-              onHoverEnd={(e) => { }}
+              onHoverStart={(e) => {}}
+              onHoverEnd={(e) => {}}
               className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
               alt="Statamic"
