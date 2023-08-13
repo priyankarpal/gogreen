@@ -38,6 +38,10 @@ Introducing the "GoGreen" initiative, our primary goal revolves around establish
 *[pnpm](https://pnpm.io/) accelerates package installation by sharing dependencies, optimizing storage and enhancing development efficiency.*
 
 **Install dependencies**
+> For frontend
+```
+ cd frontend
+```
 
 ```bash
 pnpm i
@@ -48,6 +52,22 @@ pnpm i
 ```bash
 pnpm dev
 ```
+
+> For backend
+```
+ cd backend
+```
+
+```bash
+npm i
+```
+
+**run the development server:**
+
+```bash
+node server.js
+```
+
 # Team Members
 > Team Name: Bencode
 
